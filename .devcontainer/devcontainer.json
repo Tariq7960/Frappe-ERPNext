@@ -1,16 +1,13 @@
 ﻿{
   "name": "ERPNext v15",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "backend",
-  "workspaceFolder": "/home/frappe/frappe-bench",
-  "forwardPorts": [8080, 8000, 9000],
-  "portsAttributes": {
-    "8080": {
-      "label": "ERPNext Web",
-      "onAutoForward": "openBrowser"
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
     }
   },
-  "postStartCommand": "echo ERPNext is ready!",
-  "remoteUser": "frappe"
+  "forwardPorts": [8080],
+  "postStartCommand": "docker compose up -d",
+  "remoteUser": "root"
 }
 
